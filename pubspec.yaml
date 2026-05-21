@@ -1,0 +1,45 @@
+name: nest_plan
+description: "A planning app for everyone."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  google_fonts: ^8.1.0
+  flutter_svg: ^2.3.0
+  shared_preferences: ^2.5.5
+  sqflite: ^2.4.2+1
+  path_provider: ^2.1.5
+  lucide_icons: ^0.257.0
+  path: ^1.9.1
+  intl: ^0.20.2
+  table_calendar: ^3.2.0
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+  flutter_native_splash: ^2.4.7
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/images/app_icon.jpg"
+  adaptive_icon_background: "#101C2A"
+  adaptive_icon_foreground: "assets/images/app_icon.jpg"
+  remove_alpha_ios: true
