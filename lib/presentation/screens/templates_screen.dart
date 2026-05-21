@@ -123,7 +123,7 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
     final Set<DateTime> selectedDays = {};
     DateTime focusedDay = DateTime.now();
 
-    await showDialog(
+    final bool? shouldApply = await showDialog<bool>(
       context: context,
       builder: (ctx) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
@@ -149,7 +149,7 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
           ),
           actions: [
             TextButton(
-              onPressed: () => Navigator.pop(ctx),
+              onPressed: () => Navigator.pop(ctx, false),
               child: const Text('İptal'),
             ),
             ElevatedButton(
@@ -161,7 +161,8 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
       ),
     );
 
-    if (selectedDays.isEmpty || !mounted) return;
+    if (shouldApply != true || selectedDays.isEmpty || !mounted) return;
+
     final tasks = await DatabaseHelper.instance.getTemplateTasks(template.id!);
 
     for (var day in selectedDays) {
